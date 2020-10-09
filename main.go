@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -16,7 +17,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func registriertHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "Post" {
+	if r.Method != "POST" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
@@ -25,12 +26,14 @@ func registriertHandler(w http.ResponseWriter, r *http.Request) {
 	nachname := r.FormValue("nn")
 
 	data := struct {
-		vn string
-		nn string
+		Vorn  string
+		Nachn string
 	}{
-		vn: vorname,
-		nn: nachname,
+		Vorn:  vorname,
+		Nachn: nachname,
 	}
+
+	fmt.Println(data)
 
 	templ.ExecuteTemplate(w, "registriert.gohtml", data)
 }
