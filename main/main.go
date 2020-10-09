@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -9,7 +8,7 @@ import (
 var templ *template.Template
 
 func init() {
-	templ = template.Must(template.ParseGlob("templates/*.gohtml"))
+	templ = template.Must(template.ParseGlob("main/templates/*.gohtml"))
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -24,16 +23,17 @@ func registriertHandler(w http.ResponseWriter, r *http.Request) {
 
 	vorname := r.FormValue("vn")
 	nachname := r.FormValue("nn")
+	mail := r.FormValue("mail")
 
 	data := struct {
 		Vorn  string
 		Nachn string
+		Mail  string
 	}{
 		Vorn:  vorname,
 		Nachn: nachname,
+		Mail:  mail,
 	}
-
-	fmt.Println(data)
 
 	templ.ExecuteTemplate(w, "registriert.gohtml", data)
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h2>Bitte geben Sie Ihren Namen ein, um sich zu registrieren!</h2>
+    <h2>Bitte gib Deine Daten ein, um dich zu registrieren!</h2>
 
     <form action="/registriert" method="POST">
         <label for="vn">Vorname: </label>
@@ -13,7 +13,10 @@
 
         <label for="nn">Nachname: </label>
         <input type="text" name="nn" id="nn" placeholder="Nachname">
-
+        <br>
+        <label>E-Mail-Adresse</label>
+        <input type="email" name="mail" id="mail" placeholder="E-Mail-Adresse">
+        <br>
         <button type="submit">Registrieren</button>
     </form>
 </body>
