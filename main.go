@@ -8,7 +8,7 @@ import (
 var templ *template.Template
 
 func init() {
-	templ = template.Must(template.ParseGlob("main/templates/*.gohtml"))
+	templ = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
