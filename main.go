@@ -16,7 +16,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func registriertHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" {
+	if r.Method != "GET" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
